@@ -26,48 +26,6 @@
 
 ---
 
-## Setup Instructions
-
-### 1. Clone the Repository
-Clone this repository to your local machine:
-
-git clone https://github.com/your-username/TodoApp.git
-Navigate to the project folder:
-
-cd TodoApp
-
-### 2. Configure the Database
-Open SQL Server Management Studio (SSMS).
-Execute the SQL scripts provided in the DatabaseSetup.sql file to:
-Create the database (My_DB).
-Create tables (Users, Projects, Todos).
-Define all stored procedures for CRUD operations.
-
-### 3. Update the Configuration
-Open appsettings.json.
-
-Update the ConnectionStrings section with your SQL Server details:
-
-json
-Copy code
-"ConnectionStrings": {
-    "DefaultConnection": "Server=YOUR_SERVER_NAME;Database=My_DB;Integrated Security=True;TrustServerCertificate=True;"
-}
-Add your GitHub Personal Access Token for the Gist API:
-
-Generate a token in your GitHub account with the gist permission.
-Replace the placeholder in TodoController.cs:
-
-client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", "YOUR_PERSONAL_ACCESS_TOKEN");
-
-### 4. Build and Run the Application
-Build the application:
-dotnet build
-Run the application:
-dotnet run
-
-Open your browser and navigate to the URL provided (e.g., http://localhost:5000).
-
 ## Test Instructions
 
 Testing
