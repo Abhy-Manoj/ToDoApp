@@ -45,31 +45,3 @@ Export to Gist:
 
 Export project summaries and confirm the Gist is created on GitHub.
 Verify that the Markdown file is saved locally.
-
-
-Folder Structure
-
-TodoApp/
-├── Controllers/
-│   ├── AuthController.cs
-│   ├── ProjectController.cs
-│   ├── TodoController.cs
-├── Models/
-│   ├── Project.cs
-│   ├── Todo.cs
-│   ├── User.cs
-├── Views/
-│   ├── Auth/
-│   │   ├── Login.cshtml
-│   │   ├── Signup.cshtml
-│   │   ├── LandingPage.cshtml
-│   ├── Project/
-│   │   ├── Index.cshtml
-│   ├── Todo/
-│   │   ├── Details.cshtml
-│   ├── Shared/
-│       ├── _Layout.cshtml
-│       ├── _ValidationScriptsPartial.cshtml
-├── appsettings.json
-├── Program.cs
-├── README.md
