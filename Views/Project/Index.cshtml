@@ -1,0 +1,91 @@
+﻿@{
+    ViewBag.Title = "Projects";
+}
+
+<h2 class="text-center mb-4">Projects</h2>
+@if (!string.IsNullOrEmpty(ViewBag.Error))
+{
+    <div class="alert alert-danger text-center">@ViewBag.Error</div>
+}
+<button class="btn btn-primary mt-4" data-bs-toggle="modal" data-bs-target="#createProjectModal"><i class="fas fa-plus"></i> Add Project</button>
+<br />
+<br />
+
+@if (Model.Count == 0)
+{
+    <p class="text-center">You have no projects. Start by creating one below!</p>
+}
+else
+{
+    <ul class="list-group">
+        @foreach (var project in Model)
+        {
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+                <a href="/Todo/Details/@project.ProjectId" class="text-decoration-none">@project.Title</a>
+                <span>
+                    <a href="#" class="me-2 text-decoration-none" data-bs-toggle="modal" data-bs-target="#editProjectModal"
+                       data-id="@project.ProjectId" data-title="@project.Title"><i class="fas fa-edit"></i></a>
+                       | &nbsp;
+                    <a href="/Project/Delete/@project.ProjectId" class="text-danger"><i class="fas fa-trash"></i></a>
+                </span>
+            </li>
+        }
+    </ul>
+}
+
+<!-- Create Modal -->
+<div class="modal fade" id="createProjectModal" tabindex="-1" aria-labelledby="createProjectModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <form method="post" action="/Project/Create">
+                <div class="modal-header">
+                    <h5 class="modal-title">Create Project</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <label for="projectTitle" class="form-label">Title</label>
+                    <input type="text" id="projectTitle" name="Title" class="form-control" required />
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary">Create</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!-- Edit Modal -->
+<div class="modal fade" id="editProjectModal" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <form method="post" action="/Project/Update">
+                <input type="hidden" id="editProjectId" name="ProjectId" />
+                <div class="modal-header">
+                    <h5 class="modal-title">Edit Project</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <label for="editProjectTitle" class="form-label">Title</label>
+                    <input type="text" id="editProjectTitle" name="Title" class="form-control" required />
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary">Save</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+<script>
+    document.querySelectorAll('[data-bs-target="#editProjectModal"]').forEach(button => {
+        button.addEventListener('click', function () {
+            const projectId = this.dataset.id;
+            const projectTitle = this.dataset.title;
+            document.getElementById('editProjectId').value = projectId;
+            document.getElementById('editProjectTitle').value = projectTitle;
+        });
+    });
+</script>
