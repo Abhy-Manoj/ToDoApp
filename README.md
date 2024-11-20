@@ -22,7 +22,6 @@
 - **.NET 6 SDK** or higher
 - **SQL Server** with SQL Server Management Studio (SSMS)
 - **GitHub Account** (to generate a Personal Access Token for Gist API)
-- **Git** (optional for version control)
 
 ---
 
@@ -36,7 +35,6 @@ Test invalid credentials for error handling.
 Project Management:
 
 Add, edit, and delete projects. Verify changes in the database.
-Try adding projects with invalid or missing titles to test validations.
 Todo Management:
 
 Add, edit, and delete todos for a project.
