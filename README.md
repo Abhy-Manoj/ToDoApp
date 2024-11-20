@@ -12,7 +12,7 @@
 ## Features
 1. **Authentication**: User signup, login, and logout functionality with session management.
 2. **Project Management**: Create, view, edit, and delete projects.
-3. **Todo Management**: Manage todos with status toggling between `Pending` and `Completed`.
+3. **Todo Management**: Manage todos with status toggling between 'Pending' and 'Completed'.
 4. **Export to Gist**: Export project summaries to GitHub as secret gists and save locally as Markdown files.
 5. **Responsive UI**: Built with Bootstrap for an intuitive and responsive user experience.
 
